@@ -1,10 +1,11 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const bcrypt = require('bcrypt-nodejs');
-
+const cors = require('cors');
 
 const app = express();
 app.use(bodyParser.json());
+app.use(cors());
 
 
 
@@ -44,18 +45,10 @@ app.get('/', (req, res) => {
 
 //sign in
 app.post('/signin', (req, res) => {
-    // Load hash from your password DB.
-    bcrypt.compare("apples", "$2a$10$K8qW4VOjeiqpBDxtumCBhuXi.D1.5qhdHgFtPgdiT7J2jbrDM.rne", function (err, res) {
-      // res == true
-      console.log('First guess:',res);
-      
-    });
-    bcrypt.compare("veggies", "$2a$10$K8qW4VOjeiqpBDxtumCBhuXi.D1.5qhdHgFtPgdiT7J2jbrDM.rne", function (err, res) {
-      // res = false
-      console.log('Second guess:',res);
-    });
+  console.log(req.body);
+  
   if (req.body.email === database.users[0].email && req.body.password === database.users[0].password) {
-    return res.json('success');
+    return res.json(database.users[0]);
   } else {
     res.status(400).json('error logging in')
   }
@@ -79,7 +72,7 @@ app.post('/register', (req, res) => {
     id: '125',
     name: name,
     email: email,
-    password: password,
+    // password: password,
     entries: 0,
     joined: new Date()
   });
