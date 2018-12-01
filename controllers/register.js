@@ -1,5 +1,9 @@
 const handleRegister = (req, res,db,bcrypt) => {
   const { email, password, name } = req.body;
+  if(!email || !name || !password){
+    return res.status(400).json('incorrect form submission');
+  }
+
   const hash = bcrypt.hashSync(password);
 
   //First update login table
