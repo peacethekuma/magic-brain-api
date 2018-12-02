@@ -2,19 +2,39 @@
   "name": "magic-brain-api",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "server.js",
+  "dependencies": {
+    "bcrypt-nodejs": "0.0.3",
+    "body-parser": "^1.18.3",
+    "clarifai": "^2.9.0",
+    "cors": "^2.8.5",
+    "express": "^4.16.4",
+    "knex": "^0.15.2",
+    "pg": "^7.6.1"
+  },
+  "devDependencies": {
+    "nodemon": "^1.18.7"
+  },
   "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
     "start": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/peacethekuma/magic-brain-api.git"
   },
   "author": "",
   "license": "ISC",
+<<<<<<< HEAD
   "dependencies": {
     "bcrypt-nodejs": "0.0.3",
     "body-parser": "^1.18.3",
     "cors": "^2.8.5",
     "express": "^4.16.4"
+=======
+  "bugs": {
+    "url": "https://github.com/peacethekuma/magic-brain-api/issues"
+>>>>>>> development
   },
-  "devDependencies": {
-    "nodemon": "^1.18.6"
-  }
+  "homepage": "https://github.com/peacethekuma/magic-brain-api#readme"
 }
